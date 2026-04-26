@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Academic website for Your Name, mathematics PhD student." />
-  <title>Your Name | Mathematics</title>
+  <meta name="description" content="Academic website for Smita Rajan, mathematics PhD student." />
+  <title>Smita Rajan | Mathematics</title>
 
   <style>
     :root {
@@ -69,7 +69,7 @@
     main {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 2rem 1.25rem 4rem;
+      padding: 3rem 1.25rem 4rem;
     }
 
     .hero {
@@ -77,7 +77,6 @@
       grid-template-columns: 180px 1fr;
       gap: 2rem;
       align-items: center;
-      margin-bottom: 2.5rem;
     }
 
     .portrait {
@@ -89,73 +88,32 @@
       border: 1px solid var(--border);
     }
 
-    h1, h2, h3 {
-      line-height: 1.25;
-      margin-top: 0;
-    }
-
     h1 {
-      font-size: 2.1rem;
-      margin-bottom: 0.4rem;
-    }
-
-    h2 {
-      font-size: 1.45rem;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.35rem;
-      margin-top: 2.5rem;
-    }
-
-    h3 {
-      font-size: 1.05rem;
-      margin-bottom: 0.25rem;
+      font-size: 2.2rem;
+      line-height: 1.2;
+      margin: 0 0 0.4rem;
     }
 
     .subtitle {
       color: var(--muted);
       margin: 0 0 1rem;
+      font-size: 1.05rem;
     }
 
     .links {
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem;
-      margin-top: 1rem;
+      margin-top: 1.25rem;
     }
 
     .button-link {
       display: inline-block;
-      padding: 0.4rem 0.75rem;
+      padding: 0.4rem 0.8rem;
       border: 1px solid var(--accent);
       border-radius: 999px;
       background: var(--accent-light);
       font-size: 0.95rem;
-    }
-
-    section {
-      margin-bottom: 1.5rem;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1rem 1.15rem;
-      margin: 1rem 0;
-    }
-
-    .item-meta {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin-bottom: 0.4rem;
-    }
-
-    ul {
-      padding-left: 1.25rem;
-    }
-
-    li {
-      margin-bottom: 0.5rem;
     }
 
     footer {
@@ -169,7 +127,6 @@
     @media (max-width: 700px) {
       .hero {
         grid-template-columns: 1fr;
-        text-align: left;
       }
 
       .portrait {
@@ -188,29 +145,32 @@
 <body>
   <header>
     <div class="nav">
-      <div class="site-title">Your Name</div>
+      <div class="site-title"><a href="index.html">Smita Rajan</a></div>
       <nav aria-label="Main navigation">
-        <a href="#research">Research</a>
-        <a href="#papers">Papers</a>
-        <a href="#teaching">Teaching</a>
-        <a href="#talks">Talks</a>
-        <a href="#contact">Contact</a>
+        <a href="research.html">Research</a>
+        <a href="papers.html">Papers</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="talks.html">Talks</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero" id="about">
-      <!-- Replace profile.jpg with your own image, or remove this img tag. -->
-      <img class="portrait" src="profile.jpg" alt="Portrait of Your Name" />
+    <section class="hero">
+      <!-- Replace profile.jpg with your own image, or delete this image line. -->
+      <img class="portrait" src="profile.jpg" alt="Portrait of Smita Rajan" />
 
       <div>
-        <h1>Your Name</h1>
-        <p class="subtitle">PhD Student in Mathematics · University Name</p>
+        <h1>Smita Rajan</h1>
+        <p class="subtitle">PhD Student in Mathematics · UC Berkeley</p>
+
         <p>
-          I am a graduate student in mathematics at University Name, advised by
-          Advisor Name. My research interests include algebraic geometry,
+          I am a PhD student in mathematics at UC Berkeley. My research interests include algebraic geometry,
           enumerative geometry, moduli spaces, and related topics.
+        </p>
+
+        <p>
+          Email: <a href="mailto:your.email@university.edu">your.email@university.edu</a>
         </p>
 
         <div class="links">
@@ -220,101 +180,6 @@
           <a class="button-link" href="https://github.com/yourusername">GitHub</a>
         </div>
       </div>
-    </section>
-
-    <section id="research">
-      <h2>Research</h2>
-      <p>
-        Write a short overview of your mathematical interests here. This section
-        should be accessible to mathematicians outside your immediate area, while
-        still giving a precise sense of the objects and questions you study.
-      </p>
-
-      <div class="card">
-        <h3>Current interests</h3>
-        <ul>
-          <li>Moduli spaces of curves and tautological classes.</li>
-          <li>Enumerative geometry and degeneracy loci.</li>
-          <li>Intersection theory on Grassmannians and universal families.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="papers">
-      <h2>Papers and Preprints</h2>
-
-      <div class="card">
-        <h3>Title of Paper One</h3>
-        <div class="item-meta">with Coauthor Name · Preprint, 2026</div>
-        <p>
-          Brief one- or two-sentence abstract. Explain the main result without
-          making this section too long.
-        </p>
-        <p>
-          <a href="#">arXiv</a> · <a href="#">PDF</a> · <a href="#">Slides</a>
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Title of Paper Two</h3>
-        <div class="item-meta">In preparation</div>
-        <p>
-          Brief description of the project, optional if you prefer not to list
-          works in preparation.
-        </p>
-      </div>
-    </section>
-
-    <section id="teaching">
-      <h2>Teaching</h2>
-
-      <div class="card">
-        <h3>Course Name</h3>
-        <div class="item-meta">Teaching Assistant · Spring 2026</div>
-        <p>
-          Discussion sections, office hours, grading, or course materials.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Course Name</h3>
-        <div class="item-meta">Instructor · Fall 2025</div>
-        <p>
-          Add a short description or link to syllabus/course page.
-        </p>
-      </div>
-    </section>
-
-    <section id="talks">
-      <h2>Talks</h2>
-      <ul>
-        <li>
-          <strong>Talk Title.</strong> Seminar or Conference Name,
-          University Name, Month 2026. <a href="#">Slides</a>
-        </li>
-        <li>
-          <strong>Talk Title.</strong> Graduate Student Seminar,
-          University Name, Month 2025.
-        </li>
-      </ul>
-    </section>
-
-    <section id="notes">
-      <h2>Notes</h2>
-      <ul>
-        <li><a href="#">Expository notes on topic one</a></li>
-        <li><a href="#">Reading group notes on topic two</a></li>
-      </ul>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>
-        Department of Mathematics<br />
-        University Name<br />
-        Office: Building and Room Number<br />
-        Email: <a href="mailto:your.email@university.edu">your.email@university.edu</a>
-      </p>
     </section>
   </main>
 
