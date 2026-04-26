@@ -1,280 +1,227 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Academic website for Smita Rajan, mathematics PhD student." />
-  <title>Smita Rajan | Mathematics</title>
+%-------------------------
+% CV in LaTeX
+%------------------------
 
-  <style>
-    :root {
-      --bg: #fbfaf7;
-      --text: #232323;
-      --muted: #666666;
-      --accent: #315f72;
-      --accent-light: #e3eef2;
-      --border: #dedbd2;
-      --card: #ffffff;
-      --max-width: 920px;
-    }
+\documentclass[letterpaper,12pt]{article}
 
-    * {
-      box-sizing: border-box;
-    }
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{times}
+\input{glyphtounicode}
 
-    body {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
 
-    a:hover {
-      text-decoration: underline;
-    }
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
 
-    header {
-      border-bottom: 1px solid var(--border);
-      background: var(--card);
-    }
+% Section formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
-    .nav {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 1rem 1.25rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
+\pdfgentounicode=1
 
-    .site-title {
-      font-size: 1.25rem;
-      font-weight: bold;
-      letter-spacing: 0.02em;
-    }
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{{#1 \vspace{-2pt}}}
+}
 
-    nav a {
-      margin-left: 1rem;
-      font-size: 0.95rem;
-    }
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
 
-    main {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 3rem 1.25rem 4rem;
-    }
+% A compact year heading for sections like Talks.
+% This avoids the extra blank italic line caused by \resumeSubheading{2026}{}{}{}.
+\newcommand{\resumeYearHeading}[1]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \\
+    \end{tabular*}\vspace{-10pt}
+}
 
-    .hero {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 2rem;
-      align-items: center;
-    }
+% A non-bold entry command for Awards and Honors.
+\newcommand{\awardEntry}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      #1 & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
 
-    .portrait {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      background: var(--accent-light);
-      border: 1px solid var(--border);
-    }
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
 
-    h1 {
-      font-size: 2.2rem;
-      line-height: 1.2;
-      margin: 0 0 0.4rem;
-    }
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
 
-    .subtitle {
-      color: var(--muted);
-      margin: 0 0 1rem;
-      font-size: 1.05rem;
-    }
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 1.25rem;
-    }
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
-    .button-link {
-      display: inline-block;
-      padding: 0.4rem 0.8rem;
-      border: 1px solid var(--accent);
-      border-radius: 999px;
-      background: var(--accent-light);
-      font-size: 0.95rem;
-    }
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-    h2 {
-      margin-top: 2.5rem;
-      margin-bottom: 1rem;
-      font-size: 1.45rem;
-      line-height: 1.25;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.35rem;
-    }
+\begin{document}
 
-    h3 {
-      margin-top: 0;
-      margin-bottom: 0.25rem;
-      line-height: 1.25;
-      font-size: 1.05rem;
-    }
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Smita Rajan} \\ \vspace{0.5pt}
+    \small 617-620-6807 $\mid$ \href{mailto:smita\_rajan@berkeley.edu}{\underline{smita\_rajan@berkeley.edu}} $\mid$ \href{https://smitarajan6.github.io/index.html}{\underline{smitarajan6.github.io}}
+\end{center}
 
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 0.8rem 1rem;
-      margin: 0.75rem 0;
-    }
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of California, Berkeley}{Berkeley, CA}
+      {PhD Student, Department of Mathematics}{August 2024--present}
+      \resumeItemListStart
+        \resumeItem{Advisors: Hannah Larson and Bernd Sturmfels}
+        \resumeItem{Visits at the Max Planck Institute for Mathematics in the Sciences, Leipzig, Germany: June--July 2024, June--July 2025, January 2026}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Brown University}{Providence, RI}
+      {Mathematics, Sc.B. with Honors; Mathematical Physics, Sc.B. with Honors}{May 2024}
+  \resumeSubHeadingListEnd
 
-    .card p {
-      margin-top: 0.35rem;
-      margin-bottom: 0;
-      line-height: 1.35;
-    }
+\section{Publications}
+\begin{enumerate}
+\item Kinematic varieties for massless particles (with S. Sverrisdóttir and B. Sturmfels), \textit{Le Matematiche}, 80 (2025), no. 1, 453--471, arXiv:2408.16711.
+\item Five-dimensional spinor helicity for all masses and spins (with A. Pokraka, L. Ren, A. Volovich, and W. W. Zhao), \textit{J. High Energy Phys.} (2025), no. 7, Paper No. 056, arXiv:2405.09533.
+\end{enumerate}
 
-    .item-meta {
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.35;
-      margin-bottom: 0.25rem;
-    }
+%-----------TALKS-----------
+\section{Talks}
+\resumeSubHeadingListStart
+  \resumeYearHeading{2026}
+    \resumeItemListStart
+      \resumeItem{\'Etale cohomology seminar, UC Berkeley}
+      \resumeItem{Hodge theory seminar, UC Berkeley}
+      \resumeItem{Algebraic Curves in January, Max Planck Institute for Mathematics in the Sciences}
+    \resumeItemListEnd
 
-    footer {
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      text-align: center;
-      padding: 1.5rem 1rem;
-      font-size: 0.9rem;
-    }
+  \resumeYearHeading{2025}
+    \resumeItemListStart
+      \resumeItem{SIAM Conference on Applied Algebraic Geometry, University of Wisconsin--Madison}
+      \resumeItem{Tropical Geometry Seminar, UC Berkeley}
+    \resumeItemListEnd
 
-    @media (max-width: 700px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
+  \resumeYearHeading{2024}
+    \resumeItemListStart
+      \resumeItem{Geometric class field theory seminar, UC Berkeley}
+      \resumeItem{Commutative Algebra and Algebraic Geometry Seminar, University of California, Berkeley}
+      \resumeItem{Positive Geometry Seminar, Max Planck Institute for Mathematics in the Sciences}
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
 
-      .portrait {
-        width: 150px;
-        height: 150px;
-      }
+%-----------TEACHING-----------
+\section{Teaching}
+\resumeSubHeadingListStart
+  \resumeSubheading{Graduate Student Instructor}{August--December 2024}
+      {University of California, Berkeley}{Berkeley, CA}
+      \resumeItemListStart
+        \resumeItem{Served as a Graduate Student Instructor for Math 1B. Duties included holding discussion sections, office hours, creating quizzes, and grading homework and exams.}
+      \resumeItemListEnd
 
-      nav a {
-        margin-left: 0;
-        margin-right: 0.75rem;
-      }
-    }
-  </style>
-</head>
+  \resumeSubheading{Undergraduate Teaching Assistant}{September 2021--May 2024}
+      {Brown University}{Providence, RI}
+      \resumeItemListStart
+        \resumeItem{Served as an Undergraduate Teaching Assistant for PHYS 0030, PHYS 0040, PHYS 0160, PHYS 1410, and PHYS 1420. Duties included facilitating problem-solving workshop sessions, holding weekly office hours, and grading.}
+      \resumeItemListEnd
+\resumeSubHeadingListEnd
 
-<body>
-  <header>
-    <div class="nav">
-      <div class="site-title"><a href="index.html">Smita Rajan</a></div>
-      <nav aria-label="Main navigation">
-        <a href="#papers">Publications</a>
-        <a href="#activities">Activities</a>
-      </nav>
-    </div>
-  </header>
+%-----------MENTORING-----------
+\section{Mentoring}
+  \resumeSubHeadingListStart
+    \resumeSubheading{Mentor for UC Berkeley Directed Reading Program}{August 2025--June 2026}
+      {University of California, Berkeley}{Berkeley, CA}
+      \resumeItemListStart
+        \resumeItem{Fall 2025: Computational algebraic geometry}
+        \resumeItem{Fall 2025: Introduction to scheme theory}
+        \resumeItem{Spring 2026: Sheaf cohomology}
+      \resumeItemListEnd
 
-  <main>
-    <section class="hero">
-      <!-- Replace profile.jpg with your own image, or delete this image line. -->
-      <img class="portrait" src="profile.jpg" alt="Portrait of Smita Rajan" />
+    \resumeSubheading
+      {Physics Departmental Undergraduate Group}{September 2020--May 2024}
+      {Coordinator}{Brown University}
+      \resumeItemListStart
+        \resumeItem{Helped foster community amongst physics concentrators by planning and holding weekly social and academic events such as Barriers in Physics, Scialogue, and various advising events to help address issues of diversity and inclusion in physics.}
+        \resumeItem{Received ``Outstanding Chapter'' award from the Society of Physics Students in 2021 and 2022.}
+        \resumeItem{Collaborated with MIT, Harvard, and Wellesley College SPS to help organize the PRISM 2021 Undergraduate Research Conference.}
+      \resumeItemListEnd
 
-      <div>
-        <h1>Smita Rajan</h1>
-        <p class="subtitle">PhD Student in Mathematics · UC Berkeley</p>
+    \resumeSubheading
+      {Conference for Undergraduate Women in Physics}{September 2022--January 2023}
+      {Local organizing committee member}{Brown University}
+      \resumeItemListStart
+        \resumeItem{Helped organize the 2023 APS Conference for Undergraduate Women in Physics at Brown University by planning workshops, panel sessions, career fairs, and logistics along with graduate students and professors.}
+      \resumeItemListEnd
 
-        <p>
-          I am a second-year PhD student in mathematics at UC Berkeley, where I study algebraic geometry. More specifically, I am interested in intersection theory, moduli of curves, and tropical geometry. I am jointly advised by <a href="https://math.berkeley.edu/~bernd/">Bernd Sturmfels</a> and <a href="https://math.berkeley.edu/~hlarson/">Hannah Larson</a>. I am grateful for the support of the NSF GRFP and the UC Berkeley Chancellor's Fellowship.
-        </p>
+    \resumeSubheading
+      {Math Diversity and Inclusion Action Plan (DIAP) Committee}{September 2023--May 2024}
+      {Member}{Brown University}
+      \resumeItemListStart
+        \resumeItem{Collaborated with a group of undergraduates, graduate students, and professors to address issues surrounding diversity, inclusion, and equity within the mathematics community at Brown.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
 
-        <p>
-          Email: <a href="mailto:smita_rajan@berkeley.edu">smita_rajan@berkeley.edu</a>
-        </p>
+%-----------AWARDS AND HONORS-----------
+\section{Awards and Honors}
+\resumeSubHeadingListStart
+  \awardEntry{NSF Graduate Research Fellowship}{2024--2029}
+      {University of California, Berkeley}{Berkeley, CA}
+  \awardEntry{UC Berkeley Chancellor's Fellowship}{2025--2026}
+      {University of California, Berkeley}{Berkeley, CA}
+  \awardEntry{Albert A. Bennett Prize for Exceptional Accomplishment in Mathematics Concentration}{2024}
+      {Brown University}{Providence, RI}
+  \awardEntry{Mildred Widgoff Prize for Excellence in Thesis Preparation (Physics)}{2024}
+      {Brown University}{Providence, RI}
+\resumeSubHeadingListEnd
 
-        <div class="links">
-          <a class="button-link" href="cv.pdf">CV</a>
-          <a class="button-link" href="https://arxiv.org/search/?query=Rajan%2C+Smita&searchtype=author&abstracts=show&order=-announced_date_first&size=50">arXiv</a>
-          <a class="button-link" href="https://scholar.google.com/citations?hl=en&user=22pqD68AAAAJ">Google Scholar</a>
-        </div>
-      </div>
-    </section>
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Programming Languages}{: Macaulay2, Mathematica, Python, SageMath, \LaTeX.}}}
+ \end{itemize}
 
-    <section id="papers">
-      <h2>Publications</h2>
-
-      <div class="card">
-        <h3>
-          <a href="https://arxiv.org/abs/2408.16711">Kinematic Varieties for Massless Particles</a>
-        </h3>
-        <div class="item-meta">with Svala Sverrisdóttir and Bernd Sturmfels · Le Matematiche 80 (1), 453–471, 2025</div>
-        <p>
-          <a href="https://arxiv.org/abs/2408.16711">arXiv:2408.16711</a>
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>
-          <a href="https://arxiv.org/abs/2405.09533">Five-dimensional spinor helicity for all masses and spins</a>
-        </h3>
-        <div class="item-meta">with Andrzej Pokraka, Lecheng Ren, Anastasia Volovich, and W. Wayne Zhao · Journal of High Energy Physics 2025, Article 056</div>
-        <p>
-          <a href="https://arxiv.org/abs/2405.09533">arXiv:2405.09533</a>
-        </p>
-      </div>
-    </section>
-
-    <section id="activities">
-      <h2>Activities</h2>
-
-      <div class="card">
-        <h3>2026</h3>
-        <ul>
-          <li>Spring 2026: Co-organizing <a href="https://lizziepratt.com/seminar/">Hodge theory seminar</a>.</li>
-          <li>January 2026: <a href="https://www.mis.mpg.de/events/event/algebraic-curves-in-january">Algebraic Curves in January</a>, Max Planck Institute for Mathematics in the Sciences, Leipzig, Germany.</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>2025</h3>
-        <ul>
-          <li>December 2025: Passed qualifying exam.</li>
-          <li>Spring 2025: Co-organized <a href="https://lizziepratt.com/seminar/">tropical geometry seminar</a>.</li>
-          <li>July 2025: <a href="https://www.siam.org/conferences-events/past-event-archive/ag25/">SIAM Conference on Applied Algebraic Geometry</a>, University of Wisconsin-Madison.</li>
-          <li>July 2025: <a href="https://www.slmath.org/summer-schools/1129">SLMath Summer School on New Perspectives on Discriminants and Applications</a>, MPI Leipzig, Germany.</li>
-          <li>June-July 2025: Visitor at the <a href="https://www.mis.mpg.de/">Max Planck Institute for Mathematics in the Sciences</a>, Leipzig, Germany.</li>
-          <li>June 2025: <a href="https://cmsa.fas.harvard.edu/event/positivityqft/">Summer School in Total Positivity and Quantum Field Theory</a>, Harvard CMSA.</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>2024</h3>
-        <ul>
-          <li>November 2024: <a href="https://www.ias.edu/mathematical-physics/combinatorics-fundamental-physics-workshop">Combinatorics of Fundamental Physics Workshop</a>, Institute for Advanced Study, Princeton.</li>
-          <li>June-July 2024: Visitor at the <a href="https://www.mis.mpg.de/">Max Planck Institute for Mathematics in the Sciences</a>, Leipzig, Germany.</li>
-          <li>May 2024: <a href="https://cmsa.fas.harvard.edu/event/amplituhedra-cluster-algebras-and-positive-geometry/">Amplituhedra, Cluster Algebras, and Positive Geometry</a>, Harvard CMSA.</li>
-        </ul>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    Last updated: April 2026 · Built with GitHub Pages
-  </footer>
-</body>
-</html>
+\end{document}
